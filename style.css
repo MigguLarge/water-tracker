@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+input[type="text"],
+input[type="button"] {
+    -webkit-appearance: none; /* Removes default Safari styling */
+    -webkit-border-radius: 0; /* Optional: Removes rounded corners */
+    appearance: none;
+    border-radius: none;
+}
+
+body {
+    font-family: "MaruBuriOTF", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em;
+}
+
+.header h3 {
+    font-size: 1.4em;
+}
+
+.header h1 {
+    font-size: 2em;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20em;
+    padding: 1em;
+}
+
+.water-gauge {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.water-gauge div {
+    width: 100%;
+    height: 1em;
+    margin: 0.1em 0;
+}
+
+.water-gauge span {
+    margin-top: 1em;
+}
+
+.water-gauge_empty {
+    background: hsla(209, 50%, 82%, 0.2);
+}
+
+.water-gauge_over {
+    background: hsl(209, 90%, 65%);
+}
+
+.water-gauge_full {
+    background: hsl(209, 100%, 82%);
+}
+
+.add-water {
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
+}
+
+.add-water * {
+    font-family: "MaruBuriOTF", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.add-water_input {
+    padding: 0.5em;
+    border: none;
+    border-bottom: 1px solid black;
+    margin-bottom: 1em;
+    width: 100%;
+}
+
+.add-water_btn-wrapper button {
+    border: none;
+    padding: 0.5em;
+}
+
+.add-water_add-btn {
+    background: hsl(209, 100%, 82%);
+    color: black;
+}
+
+.add-water_reset-btn {
+    background: hsl(0, 100%, 82%);
+    color: black;
+}

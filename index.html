@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script
+            defer
+            src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+        ></script>
+        <link
+            href="https://hangeul.pstatic.net/hangeul_static/css/maru-buri.css"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="reset.css" />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h3>Krishna's</h3>
+                <h1>Water Tracker</h1>
+            </div>
+            <div
+                class="main"
+                x-data="{ totalWater, additionalWater: '', waterGauge: totalWater / 300 }"
+                x-init="$watch('totalWater', value => {updateTotalWaterMl(value); waterGauge = totalWater / 300;}); console.log(typeof waterGauge)"
+            >
+                <div class="water-gauge">
+                    <template x-for="i in 10 - Math.floor(waterGauge)" key=":i">
+                        <div class="water-gauge_empty"></div>
+                    </template>
+                    <template x-for="i in Math.floor(waterGauge) - 10" key=":i">
+                        <div class="water-gauge_over"></div>
+                    </template>
+                    <template
+                        x-for="i in Math.min(10, Math.floor(waterGauge))"
+                        key=":i"
+                    >
+                        <div class="water-gauge_full"></div>
+                    </template>
+                    <span x-text="totalWater + 'ml / 3000ml'"></span>
+                </div>
+                <div class="add-water">
+                    <input
+                        type="text"
+                        class="add-water_input"
+                        placeholder="How much did you drink? (ml)"
+                        x-model="additionalWater"
+                    />
+                    <div class="add-water_btn-wrapper">
+                        <button
+                            class="add-water_add-btn"
+							x-on:click="if (additionalWater != '' && !Number.isNaN(Number(additionalWater))) {totalWater += parseInt(additionalWater); waterGauge = totalWater / 300; additionalWater='';} else {alert('Please insert a number');}"
+                        >
+                            Add Water
+                        </button>
+                        <button
+                            class="add-water_reset-btn"
+                            x-on:click="totalWater = 0"
+                        >
+                            Reset!
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="index.js"></script>
+    </body>
+</html>
